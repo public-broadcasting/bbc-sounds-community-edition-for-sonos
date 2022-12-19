@@ -29,7 +29,7 @@ http://`192.168.0.156`:1400/customsd (Replace the IP Address shown here.)
 
 3.) Fill out all fields as shown below:
 
-**Tip:** For a better view download the <a href="https://github.com/public-broadcasting/bbc-sounds-community-edition-for-sonos/edit/main/README.md">HMTL file</a>.
+**Tip:** For a better view download the <a href="https://github.com/public-broadcasting/bbc-sounds-community-edition-for-sonos/blob/main/customsd_setup.html">HMTL file</a>.
 
 &nbsp;&nbsp; 3.1 SID: Enter `255`<br>
 &nbsp;&nbsp; ℹ️ If you already have a CustomSD, then switch to one of 240-253.<br>
@@ -43,10 +43,12 @@ http://`192.168.0.156`:1400/customsd (Replace the IP Address shown here.)
 
 &nbsp;&nbsp; 3.5 Authentication SOAP header policy: Choose `Anonymous`
 
-&nbsp;&nbsp; 3.6a Strings table (optional) - Version: Enter `0`<br>
+&nbsp;&nbsp; 3.6a Strings table (optional) - Version: Enter `1`<br>
+&nbsp;&nbsp; ⚠️ After an update, this number must be increased. (May differ from screenshot.)<br>
 &nbsp;&nbsp; 3.6b Strings table (optional) - Uri: Enter `https://smapi.streamurl.link/strings.xml`
 
-&nbsp;&nbsp; 3.7a Strings table (optional) - Version: Enter `0`<br>
+&nbsp;&nbsp; 3.7a Strings table (optional) - Version: Enter `1`<br>
+&nbsp;&nbsp; ⚠️ After an update, this number must be increased. (May differ from screenshot.)<br>
 &nbsp;&nbsp; 3.7b Strings table (optional) - Uri: Enter `https://smapi.streamurl.link/pmap.xml`
 
 &nbsp;&nbsp; 3.8  Container Type: Choose `Music Service`
