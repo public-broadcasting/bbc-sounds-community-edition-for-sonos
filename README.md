@@ -8,6 +8,8 @@ Besides the alternative of downloading the BBC sounds app for <a href="https://a
 
 **BBC Sounds (Community Edition)** bring back the classic Sonos control in order to listen to your favorite stations, without the hassle of using third-party apps and cast technologies.
 
+<img src="https://raw.githubusercontent.com/public-broadcasting/bbc-sounds-community-edition-for-sonos/main/img/bbc-sounds-community-edition-demo.gif">
+
 ---
 
 ## Installation
