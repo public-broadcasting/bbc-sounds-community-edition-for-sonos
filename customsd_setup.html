@@ -1,0 +1,107 @@
+<!--                                                                                                                                    -->
+<!--    BBC Sounds (Community Edition)                                                                                                  -->
+<!--    Version 1                                                                                                                       -->
+<!--                                                                                                                                    -->
+<!--    Alternative integration of BBC Sounds on Sonos for listeners outside the UK.                                                    -->
+<!--    Which brings back the classic Sonos control to listen to your favorite stations                                                 -->
+<!--    without the hassle of using third-party apps and cast technologies.                                                             -->
+<!--                                                                                                                                    -->
+<!--    Documentation: https://github.com/public-broadcasting/bbc-sounds-community-edition-for-sonos                                    -->
+<!--                                                                                                                                    -->
+<!--                                                                                                                                    -->
+<!--    Licensed under MIT (https://github.com/public-broadcasting/bbc-sounds-community-edition-for-sonos/blob/main/LICENSE)            -->
+<!--                                                                                                                                    -->
+<!--    Copyright (c) 2022 public-broadcasting                                                                                          -->
+<!--                                                                                                                                    -->
+<!--    Permission is hereby granted, free of charge, to any person obtaining a copy                                                    -->
+<!--    of this software and associated documentation files (the "Software"), to deal                                                   -->
+<!--    in the Software without restriction, including without limitation the rights                                                    -->
+<!--    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell                                                       -->
+<!--    copies of the Software, and to permit persons to whom the Software is                                                           -->
+<!--    furnished to do so, subject to the following conditions:                                                                        -->
+<!--                                                                                                                                    -->
+<!--    The above copyright notice and this permission notice shall be included in all                                                  -->
+<!--    copies or substantial portions of the Software.                                                                                 -->
+<!--                                                                                                                                    -->
+<!--    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR                                                      -->
+<!--    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,                                                        -->
+<!--    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE                                                     -->
+<!--    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER                                                          -->
+<!--    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,                                                   -->
+<!--    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE                                                   -->
+<!--    SOFTWARE.                                                                                                                       -->
+<!--                                                                                                                                    -->
+
+
+<!doctype html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>BBC Sounds (Community Edition)</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+  </head>
+  <body class="d-flex flex-column h-100">
+    
+
+<main class="flex-shrink-0">
+
+  <div class="container py-5">
+
+
+
+          <h4 class="pb-4">http://<b>sonos-ip-address</b>:1400/customsd</h4>
+
+
+          <form action="/customsd" method="POST" accept-charset="UTF-8">
+            <input type="hidden" name="csrfToken" value="" />SID (240-253 or 255):<br/>
+            <input type="text" size="4" name="sid" value="255" /><br />Service Name (leave blank to erase):<br/>
+            <input type="text" size="32" name="name" value="BBC Sounds (Community Edition)" /><br />Secure Endpoint URL:<br />
+            <input type="text" size="64" name="secureUri" value="https://smapi.streamurl.link/" /><br />Polling interval (seconds):<br />
+            <input type="text" size="12" name="pollInterval" value="300" /><br />Authentication SOAP header policy:<br />
+            <input type="radio" name="authType" value="UserId" value="https://smapi.streamurl.link" /> Session ID<br />
+            <input type="radio" name="authType" value="Anonymous" checked /> Anonymous<br />
+            <input type="radio" name="authType" value="DeviceLink" /> Device Link<br />
+            <input type="radio" name="authType" value="AppLink" /> Application Link<br />Strings table (optional):<br />&nbsp;&nbsp;&nbsp;&nbsp;Version: <input type = "text" size = "12" name = "stringsVersion" value = "1" ></input>Uri: 
+            <input type="text" size="64" name="stringsUri" value="https://smapi.streamurl.link/strings.xml" /> <br />Presentation map (optional):<br />&nbsp;&nbsp;&nbsp;&nbsp;Version: 
+            <input type = "text" size = "12" name = "presentationMapVersion" value = "1" ></input>Uri: 
+            <input type="text" size="64" name="presentationMapUri" value="https://smapi.streamurl.link/pmap.xml" /> <br />Manifest (optional):<br />&nbsp;&nbsp;&nbsp;&nbsp;Version: 
+            <input type = "text" size = "12" name = "manifestVersion" value = "0" ></input>Uri: 
+            <input type="text" size="64" name="manifestUri" /> <br /> Container Type<br />
+            <input type="radio" name="containerType" value="MService" checked="checked"/> Music Service<br />
+            <input type="radio" name="containerType" value="SoundLab"/> Sonos Sound Lab<br />Capabilities<br />
+            <input type="checkbox" name="caps" value="search" checked /> Search<br />
+            <input type="checkbox" name="caps" value="trFavorites" /> Favorites: Adding/Removing Tracks<br />
+            <input type="checkbox" name="caps" value="alFavorites" /> Favorites: Adding/Removing Albums<br />
+            <!-- <input type="checkbox" name="caps" value="arFavorites" /> Favorites: Adding/Removing Artists<br /> -->
+            <input type="checkbox" name="caps" value="ucPlaylists" /> User Content Playlists<br />
+            <input type="checkbox" name="caps" value="logging" /> Playback duration logging at track end<br />
+            <input type="checkbox" name="caps" value="playbackLogging" /> Playback event logging during track play<br />
+            <input type="checkbox" name="caps" value="accountLogging" /> Account logging<br />
+            <input onchange="var e = document.getElementById('emdr'); var e2 = document.getElementById('emdp'); e.disabled = !this.checked; e2.disabled = !this.checked; if(this.checked === false) {e.checked = false; e2.checked = false;}" type="checkbox" name="caps" value="extendedMD" checked /> Extended Metadata (More Menu, Info &amp; Options)<br />
+            <input id=emdr class="ms-3" type="checkbox" name="caps" value="radioExtendedMD" /> Extended Metadata for radios ("program") and streams ("stream") to support Info View. Requires Extended Metadata Capability.<br />
+            <input id=emdp class="ms-3" type="checkbox" name="caps" value="playlistExtendedMD" /> Extended Metadata for playlists to support Info View. Requires Extended Metadata Capability.<br />
+            <input type="checkbox" name="caps" value="disableAlarms" /> Disable Alarm Support<br />
+            <input type="checkbox" name="caps" value="noMultiAccount" /> Disable Multiple Account Support<br />
+            <input type="checkbox" name="caps" value="mediaUriActions" /> Support the ability to receive actions (implicit/explicit)for getMediaUri requests<br />
+            <input type="checkbox" name="caps" value="contextHeaders" /> Include SMAPI context headers with all requests<br />
+            <input type="checkbox" name="caps" value="deviceCerts" /> Requires Device Certificate<br />
+            <input type="checkbox" name="caps" value="playerIds" /> Include Zone Player IDs in credentials header<br />
+            <input type="checkbox" name="caps" value="contextReporting" /> Add play context to reporting<br />
+            <input type="checkbox" name="caps" value="userInfo" /> Enable userInfo<br />
+            <input type="checkbox" name="caps" value="contentFiltering" /> Support content filtering<br />
+            <input type="checkbox" name="caps" value="manifest" /> Support manifest file<br />
+            <input type="checkbox" name="caps" value="authorizationHeader" /> Requires authorization header<br />
+            <input type="submit" disabled />
+          </form>
+
+
+
+</div>
+</main>
+    
+  </body>
+</html>
