@@ -14,9 +14,9 @@ Besides the alternative of downloading the BBC sounds app for <a href="https://a
 
 1.) Get the IP Address of one of your speakers
 
-       Sonos App for iOS/Android: `Settings` -> `System` -> `About My System`<br>
-       Sonos App for macOS: `Sonos` -> `About My System`<br>
-       Sonos App for Windows: `Help` -> `About My System`
+&nbsp;&nbsp; Sonos App for iOS/Android: `Settings` -> `System` -> `About My System`<br>
+&nbsp;&nbsp; Sonos App for macOS: `Sonos` -> `About My System`<br>
+&nbsp;&nbsp; Sonos App for Windows: `Help` -> `About My System`
 
 <img src="https://raw.githubusercontent.com/public-broadcasting/bbc-sounds-community-edition-for-sonos/main/img/about_my_system.jpg" alt="About My System" width="236" height="483">
 
@@ -27,7 +27,39 @@ In this example the IP Address of the speaker is `192.168.0.156`. For the follow
 
 http://`192.168.0.156`:1400/customsd (Replace the IP Address shown here.)
 
-3.) Fill out all fields as shown here.
+3.) Fill out all fields as shown below:
+
+**Tip:** For a better view download the <a href="https://github.com/public-broadcasting/bbc-sounds-community-edition-for-sonos/edit/main/README.md">HMTL file</a>.
+
+&nbsp;&nbsp; 3.1 SID: Enter `255`<br>
+&nbsp;&nbsp; ℹ️ If you already have a CustomSD, then switch to one of 240-253.<br>
+
+&nbsp;&nbsp; 3.2 Service Name (leave blank to erase): Enter `BBC Sounds (Community Edition)`<br>
+&nbsp;&nbsp; ℹ️ You can also specify a name of your choice.
+
+&nbsp;&nbsp; 3.3 Secure Endpoint URL: Enter `https://smapi.streamurl.link/`
+
+&nbsp;&nbsp; 3.4 Polling interval (seconds): Enter `300`
+
+&nbsp;&nbsp; 3.5 Authentication SOAP header policy: Choose `Anonymous`
+
+&nbsp;&nbsp; 3.6a Strings table (optional) - Version: Enter `0`<br>
+&nbsp;&nbsp; 3.6b Strings table (optional) - Uri: Enter `https://smapi.streamurl.link/strings.xml`
+
+&nbsp;&nbsp; 3.7a Strings table (optional) - Version: Enter `0`<br>
+&nbsp;&nbsp; 3.7b Strings table (optional) - Uri: Enter `https://smapi.streamurl.link/pmap.xml`
+
+&nbsp;&nbsp; 3.8  Container Type: Choose `Music Service`
+
+&nbsp;&nbsp; 3.9  Capabilities - Search: Check the option `Search`
+
+&nbsp;&nbsp; 3.10  Capabilities - Extended Metadata: Check the option `Extended Metadata (More Menu, Info & Options)`
+
+Press the `submit` button after you have filled in the fields.
+
+The settings should look like this screenshot:
+
+<img src="https://raw.githubusercontent.com/public-broadcasting/bbc-sounds-community-edition-for-sonos/main/img/customsd_setup.jpg" alt="About My System" width="519" height="445">
 
 4.) Add the service as a music service
 
