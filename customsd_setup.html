@@ -1,3 +1,9 @@
+
+<!doctype html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="utf-8">
+
 <!--                                                                                                                                    -->
 <!--    BBC Sounds (Community Edition)                                                                                                  -->
 <!--    Version 2                                                                                                                       -->
@@ -11,7 +17,7 @@
 <!--                                                                                                                                    -->
 <!--    Licensed under MIT (https://github.com/public-broadcasting/bbc-sounds-community-edition-for-sonos/blob/main/LICENSE)            -->
 <!--                                                                                                                                    -->
-<!--    Copyright (c) 2022 public-broadcasting                                                                                          -->
+<!--    Copyright (c) 2022-2023 public-broadcasting                                                                                     -->
 <!--                                                                                                                                    -->
 <!--    Permission is hereby granted, free of charge, to any person obtaining a copy                                                    -->
 <!--    of this software and associated documentation files (the "Software"), to deal                                                   -->
@@ -32,77 +38,534 @@
 <!--    SOFTWARE.                                                                                                                       -->
 <!--                                                                                                                                    -->
 
-
-<!doctype html>
-<html lang="en" class="h-100">
-  <head>
-    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <title>BBC Sounds (Community Edition)</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
+    <style>
+      .text-danger {
+        color: #ab3819;
+        font-weight: bold;
+      }
+    </style>
+
   </head>
   <body class="d-flex flex-column h-100">
+
+    <header>
+      <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <div class="container mt-auto">
+          <a class="navbar-brand" href="">http://<b>sonos-ip-address</b>:1400/customsd</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="flex-shrink-0">
+
+      <div class="container py-5">
+
+        <div class="container">
+          <div class="row">
+            <div class="col-1 text-danger text-end mt-1">
+              
+            </div>
+            <div class="col-auto">
+              <input type="hidden" name="csrfToken" value="">SID (240-253 or 255):<br>
+            </div>
+            <div class="col-auto text-danger text-start">
+              
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-1 text-danger text-end mt-1">
+              1
+            </div>
+            <div class="col-auto">
+              <input type="text" size="4" name="sid" value="255"><br>Service Name (leave blank to erase):<br>
+            </div>
+            <div class="col-auto text-danger text-start">
+              
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-1 text-danger text-end mt-1">
+              2
+            </div>
+            <div class="col-auto">
+              <input type="text" size="32" name="name" value="BBC Sounds (Community Edition)"><br>Secure Endpoint URL:
+            </div>
+            <div class="col-auto text-danger text-start">
+              
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-1 text-danger text-end mt-1">
+              3
+            </div>
+            <div class="col-auto">
+              <input type="text" size="64" name="secureUri" value="https://smapi.streamurl.link/public-broadcasting/en_GB/"><br>Polling interval (seconds):
+            </div>
+            <div class="col-auto text-danger text-start">
+              
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-1 text-danger text-end mt-1">
+              4
+            </div>
+            <div class="col-auto">
+              <input type="text" size="12" name="pollInterval" value="300"><br>Authentication SOAP header policy:
+            </div>
+            <div class="col-auto text-danger text-start">
+              
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-1 text-danger text-end mt-1">
+              
+            </div>
+            <div class="col-auto">
+              <input type="radio" name="authType" value="UserId"> Session ID
+            </div>
+            <div class="col-auto text-danger text-start">
+              
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-1 text-danger text-end mt-0">
+              5
+            </div>
+            <div class="col-auto">
+              <input type="radio" name="authType" value="Anonymous" checked> Anonymous
+            </div>
+            <div class="col-auto text-danger text-start">
+              
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-1 text-danger text-end mt-1">
+              
+            </div>
+            <div class="col-auto">
+              <input type="radio" name="authType" value="DeviceLink"> Device Link
+            </div>
+            <div class="col-auto text-danger text-start">
+              
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-1 text-danger text-end mt-1">
+              
+            </div>
+            <div class="col-auto">
+              <input type="radio" name="authType" value="AppLink"> Application Link
+            </div>
+            <div class="col-auto text-danger text-start">
+              
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-1 text-danger text-end mt-1">
+              
+            </div>
+            <div class="col-auto">
+              Strings table (optional):
+            </div>
+            <div class="col-auto text-danger text-start">
+              
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-1 text-danger text-end mt-1">
+              
+            </div>
+            <div class="col-auto ms-3">
+              Version: <input type = "text" size = "12" name = "stringsVersion" value = "0">Uri: <input type="text" size="64" name="stringsUri">
+              
+            </div>
+            <div class="col-auto text-danger text-start">
+              
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-1 text-danger text-end mt-1">
+              
+            </div>
+            <div class="col-auto">
+              Presentation map (optional):
+            </div>
+            <div class="col-auto text-danger text-start">
+              
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-1 text-danger text-end mt-1">
+              
+            </div>
+            <div class="col-auto ms-3">
+              Version: <input type = "text" size = "12" name = "presentationMapVersion" value = "0">Uri: <input type="text" size="64" name="presentationMapUri">
+            </div>
+            <div class="col-auto text-danger text-start">
+              
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-1 text-danger text-end mt-1">
+              
+            </div>
+            <div class="col-auto">
+              Manifest (optional):
+            </div>
+            <div class="col-auto text-danger text-start">
+              
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-1 text-danger text-end mt-1">
+              6a
+            </div>
+            <div class="col-auto ms-3">
+              Version: <input type = "text" size = "12" name = "manifestVersion" value = "2">Uri: <input type="text" size="64" name="manifestUri" value="https://smapi.streamurl.link/public-broadcasting/en_GB/manifest2.json">
+            </div>
+            <div class="col text-danger text-start mt-1">
+              6b
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-1 text-danger text-end mt-1">
+              
+            </div>
+            <div class="col-auto">
+              Container Type
+            </div>
+            <div class="col-auto text-danger text-start">
+
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-1 text-danger text-end mt-0">
+              7
+            </div>
+            <div class="col-auto">
+              <input type="radio" name="containerType" value="MService" checked="checked"> Music Service
+            </div>
+            <div class="col-auto text-danger text-start">
+
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-1 text-danger text-end mt-0">
+              
+            </div>
+            <div class="col-auto">
+              <input type="radio" name="containerType" value="SoundLab"> Sonos Sound Lab<br>Capabilities
+            </div>
+            <div class="col-auto text-danger text-start">
+
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-1 text-danger text-end mt-0">
+              8
+            </div>
+            <div class="col-auto">
+              <input type="checkbox" name="caps" value="search" checked> Search
+            </div>
+            <div class="col-auto text-danger text-start">
+              
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-1 text-danger text-end mt-0">
+              
+            </div>
+            <div class="col-auto">
+              <input type="checkbox" name="caps" value="trFavorites"> Favorites: Adding/Removing Tracks
+            </div>
+            <div class="col-auto text-danger text-start">
+              
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-1 text-danger text-end mt-0">
+              
+            </div>
+            <div class="col-auto">
+              <input type="checkbox" name="caps" value="alFavorites"> Favorites: Adding/Removing Albums
+            </div>
+            <div class="col-auto text-danger text-start">
+              
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-1 text-danger text-end mt-0">
+              
+            </div>
+            <div class="col-auto">
+              <input type="checkbox" name="caps" value="ucPlaylists"> User Content Playlists
+            </div>
+            <div class="col-auto text-danger text-start">
+              
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-1 text-danger text-end mt-0">
+              
+            </div>
+            <div class="col-auto">
+              <input type="checkbox" name="caps" value="logging"> Playback duration logging at track end
+            </div>
+            <div class="col-auto text-danger text-start">
+              
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-1 text-danger text-end mt-0">
+              9
+            </div>
+            <div class="col-auto">
+              <input type="checkbox" name="caps" value="playbackLogging" checked> Playback event logging during track play
+            </div>
+            <div class="col-auto text-danger text-start">
+              
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-1 text-danger text-end mt-0">
+              10
+            </div>
+            <div class="col-auto">
+              <input type="checkbox" name="caps" value="accountLogging" checked> Account logging
+            </div>
+            <div class="col-auto text-danger text-start">
+              
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-1 text-danger text-end mt-0">
+              11a
+            </div>
+            <div class="col-auto">
+              <input onchange="var e = document.getElementById('emdr'); var e2 = document.getElementById('emdp'); e.disabled = !this.checked; e2.disabled = !this.checked; if(this.checked === false) {e.checked = false; e2.checked = false;}" type="checkbox" name="caps" value="extendedMD" checked> Extended Metadata (More Menu, Info &amp; Options)
+            </div>
+            <div class="col-auto text-danger text-start">
+              
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-1 text-danger text-end mt-0">
+              11b
+            </div>
+            <div class="col-auto">
+              <input id=emdr class="ms-3" type="checkbox" name="caps" value="radioExtendedMD" checked> Extended Metadata for radios ("program") and streams ("stream") to support Info View. Requires Extended Metadata Capability.
+            </div>
+            <div class="col-auto text-danger text-start">
+              
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-1 text-danger text-end mt-0">
+              
+            </div>
+            <div class="col-auto">
+              <input id=emdp class="ms-3" type="checkbox" name="caps" value="playlistExtendedMD"> Extended Metadata for playlists to support Info View. Requires Extended Metadata Capability.
+            </div>
+            <div class="col-auto text-danger text-start">
+              
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-1 text-danger text-end mt-0">
+              
+            </div>
+            <div class="col-auto">
+              <input type="checkbox" name="caps" value="disableAlarms"> Disable Alarm Support
+            </div>
+            <div class="col-auto text-danger text-start">
+              
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-1 text-danger text-end mt-0">
+              
+            </div>
+            <div class="col-auto">
+              <input type="checkbox" name="caps" value="noMultiAccount"> Disable Multiple Account Support
+            </div>
+            <div class="col-auto text-danger text-start">
+              
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-1 text-danger text-end mt-0">
+              
+            </div>
+            <div class="col-auto">
+              <input type="checkbox" name="caps" value="mediaUriActions"> Support the ability to receive actions (implicit/explicit)for getMediaUri requests
+            </div>
+            <div class="col-auto text-danger text-start">
+              
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-1 text-danger text-end mt-0">
+              
+            </div>
+            <div class="col-auto">
+              <input type="checkbox" name="caps" value="contextHeaders"> Include SMAPI context headers with all requests
+            </div>
+            <div class="col-auto text-danger text-start">
+              
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-1 text-danger text-end mt-0">
+              
+            </div>
+            <div class="col-auto">
+              <input type="checkbox" name="caps" value="deviceCerts"> Requires Device Certificate
+            </div>
+            <div class="col-auto text-danger text-start">
+              
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-1 text-danger text-end mt-0">
+              
+            </div>
+            <div class="col-auto">
+              <input type="checkbox" name="caps" value="playerIds"> Include Zone Player IDs in credentials header
+            </div>
+            <div class="col-auto text-danger text-start">
+              
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-1 text-danger text-end mt-0">
+              
+            </div>
+            <div class="col-auto">
+              <input type="checkbox" name="caps" value="contextReporting"> Add play context to reporting
+            </div>
+            <div class="col-auto text-danger text-start">
+              
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-1 text-danger text-end mt-0">
+              
+            </div>
+            <div class="col-auto">
+              <input type="checkbox" name="caps" value="userInfo"> Enable userInfo
+            </div>
+            <div class="col-auto text-danger text-start">
+              
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-1 text-danger text-end mt-0">
+              
+            </div>
+            <div class="col-auto">
+              <input type="checkbox" name="caps" value="contentFiltering"> Support content filtering
+            </div>
+            <div class="col-auto text-danger text-start">
+              
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-1 text-danger text-end mt-0">
+              12
+            </div>
+            <div class="col-auto">
+              <input type="checkbox" name="caps" value="manifest" checked> Support manifest file
+            </div>
+            <div class="col-auto text-danger text-start">
+              
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-1 text-danger text-end mt-0">
+              
+            </div>
+            <div class="col-auto">
+              <input type="checkbox" name="caps" value="authorizationHeader"> Requires authorization header
+            </div>
+            <div class="col-auto text-danger text-start">
+              
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-1 text-danger text-end mt-1">
+              
+            </div>
+            <div class="col-auto">
+              <input type="submit" disabled>
+            </div>
+            <div class="col-auto text-danger text-start">
+              
+            </div>
+          </div>
+
+        </div>
     
-
-<main class="flex-shrink-0">
-
-  <div class="container py-5">
-
-
-
-          <h4 class="pb-4">http://<b>sonos-ip-address</b>:1400/customsd</h4>
-
-
-          <form action="/customsd" method="POST" accept-charset="UTF-8">
-            <input type="hidden" name="csrfToken" value="" />SID (240-253 or 255):<br/>
-            <input type="text" size="4" name="sid" value="255" /><br />Service Name (leave blank to erase):<br/>
-            <input type="text" size="32" name="name" value="BBC Sounds (Community Edition)" /><br />Secure Endpoint URL:<br />
-            <input type="text" size="64" name="secureUri" value="https://smapi.streamurl.link/public-broadcasting/en_GB/" /><br />Polling interval (seconds):<br />
-            <input type="text" size="12" name="pollInterval" value="300" /><br />Authentication SOAP header policy:<br />
-            <input type="radio" name="authType" value="UserId" value="https://smapi.streamurl.link" /> Session ID<br />
-            <input type="radio" name="authType" value="Anonymous" checked /> Anonymous<br />
-            <input type="radio" name="authType" value="DeviceLink" /> Device Link<br />
-            <input type="radio" name="authType" value="AppLink" /> Application Link<br />Strings table (optional):<br />&nbsp;&nbsp;&nbsp;&nbsp;Version: 
-            <input type = "text" size = "12" name = "stringsVersion" value = "0" ></input>Uri: 
-            <input type="text" size="64" name="stringsUri" /> <br />Presentation map (optional):<br />&nbsp;&nbsp;&nbsp;&nbsp;Version: 
-            <input type = "text" size = "12" name = "presentationMapVersion" value = "0" ></input>Uri: 
-            <input type="text" size="64" name="presentationMapUri" /> <br />Manifest (optional):<br />&nbsp;&nbsp;&nbsp;&nbsp;Version: 
-            <input type = "text" size = "12" name = "manifestVersion" value = "2" ></input>Uri: 
-            <input type="text" size="64" name="manifestUri" value="https://smapi.streamurl.link/public-broadcasting/en_GB/manifest2.json" /> <br /> Container Type<br />
-            <input type="radio" name="containerType" value="MService" checked="checked"/> Music Service<br />
-            <input type="radio" name="containerType" value="SoundLab"/> Sonos Sound Lab<br />Capabilities<br />
-            <input type="checkbox" name="caps" value="search" checked /> Search<br />
-            <input type="checkbox" name="caps" value="trFavorites" /> Favorites: Adding/Removing Tracks<br />
-            <input type="checkbox" name="caps" value="alFavorites" /> Favorites: Adding/Removing Albums<br />
-            <!-- <input type="checkbox" name="caps" value="arFavorites" /> Favorites: Adding/Removing Artists<br /> -->
-            <input type="checkbox" name="caps" value="ucPlaylists" /> User Content Playlists<br />
-            <input type="checkbox" name="caps" value="logging" /> Playback duration logging at track end<br />
-            <input type="checkbox" name="caps" value="playbackLogging" checked /> Playback event logging during track play<br />
-            <input type="checkbox" name="caps" value="accountLogging" checked /> Account logging<br />
-            <input onchange="var e = document.getElementById('emdr'); var e2 = document.getElementById('emdp'); e.disabled = !this.checked; e2.disabled = !this.checked; if(this.checked === false) {e.checked = false; e2.checked = false;}" type="checkbox" name="caps" value="extendedMD" checked /> Extended Metadata (More Menu, Info &amp; Options)<br />
-            <input id=emdr class="ms-3" type="checkbox" name="caps" value="radioExtendedMD" checked /> Extended Metadata for radios ("program") and streams ("stream") to support Info View. Requires Extended Metadata Capability.<br />
-            <input id=emdp class="ms-3" type="checkbox" name="caps" value="playlistExtendedMD" /> Extended Metadata for playlists to support Info View. Requires Extended Metadata Capability.<br />
-            <input type="checkbox" name="caps" value="disableAlarms" /> Disable Alarm Support<br />
-            <input type="checkbox" name="caps" value="noMultiAccount" /> Disable Multiple Account Support<br />
-            <input type="checkbox" name="caps" value="mediaUriActions" /> Support the ability to receive actions (implicit/explicit)for getMediaUri requests<br />
-            <input type="checkbox" name="caps" value="contextHeaders" /> Include SMAPI context headers with all requests<br />
-            <input type="checkbox" name="caps" value="deviceCerts" /> Requires Device Certificate<br />
-            <input type="checkbox" name="caps" value="playerIds" /> Include Zone Player IDs in credentials header<br />
-            <input type="checkbox" name="caps" value="contextReporting" /> Add play context to reporting<br />
-            <input type="checkbox" name="caps" value="userInfo" /> Enable userInfo<br />
-            <input type="checkbox" name="caps" value="contentFiltering" /> Support content filtering<br />
-            <input type="checkbox" name="caps" value="manifest" checked /> Support manifest file<br />
-            <input type="checkbox" name="caps" value="authorizationHeader" /> Requires authorization header<br />
-            <input type="submit" disabled />
-          </form>
-
-
-
-</div>
-</main>
+    </div>
+    </main>
     
+    <footer class="footer mt-auto py-3 bg-light">
+      <div class="container">
+        <span class="text-muted">
+          &copy; 2022-2023 &nbsp;
+          <a class="text-muted text-decoration-none" href="https://github.com/public-broadcasting/bbc-sounds-community-edition-for-sonos" title="GitHub" target="_blank" rel="noopener noreferrer nofollow">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+            </svg>
+            BBC Sounds (Community Edition) for Sonos
+          </a>
+        </span>
+      </div>
+    </footer>
+
   </body>
 </html>
