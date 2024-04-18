@@ -1,3 +1,7 @@
+> [!CAUTION]
+> With the Sonos update announced for May 7, as reported by <a href="https://www.theverge.com/2024/4/10/24125866/sonos-new-app-features">The Verge</a>, this integration will become obsolete.
+
+
 # BBC Sounds (Community Edition) for Sonos
 
 In December 2021 <a href="https://support.sonos.com/services/bbc-sounds">BBC Sounds</a> launched in the <a href="https://www.sonos.com/controller-app">Sonos app</a>. Listeners with Sonos speakers in the UK are able to enjoy BBC radio, music mixes and podcasts, using the Sonos app.
