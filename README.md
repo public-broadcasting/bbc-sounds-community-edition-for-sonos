@@ -1,6 +1,8 @@
 > [!CAUTION]
-> With the Sonos update announced for May 7, 2024, as reported by <a href="https://www.theverge.com/2024/4/10/24125866/sonos-new-app-features">The Verge</a>, this integration will become deprecated.
+> With the release of <a href="https://support.sonos.com/article/release-notes-sonos-system-updates">Sonos System Update 90.0-67171</a> on August 5th, 2025, the customsd (http://sonos-ip-address:1400/customsd) was disabled.
 
+> [!CAUTION]
+> With the Sonos update announced for May 7, 2024, as reported by <a href="https://www.theverge.com/2024/4/10/24125866/sonos-new-app-features">The Verge</a>, this integration will become deprecated.
 
 # BBC Sounds (Community Edition) for Sonos
 
